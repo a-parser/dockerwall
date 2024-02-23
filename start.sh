@@ -16,6 +16,8 @@ fi
 
 #from other containers
 iptables -A INPUT -s 172.16.0.0/12 -j ACCEPT
+#outgoing established
+iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
 
 IFS=", "
 
